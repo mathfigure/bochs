@@ -41,7 +41,7 @@ BX_INCDIRS = -I.. -I$(srcdir)/.. -I../@INSTRUMENT_DIR@ -I$(srcdir)/../@INSTRUMEN
 BX_OBJS = \
 	memory.o misc_mem.o
 
-BX_INCLUDES = ../bochs.h ../config.h
+BX_INCLUDES = ../bochs.h ../config.h  ../redpill.h
 
 all: libmemory.a
 
@@ -84,4 +84,4 @@ misc_mem.o: misc_mem.@CPP_SUFFIX@ ../bochs.h ../config.h ../osdep.h \
  ../cpu/instr.h ../cpu/ia_opcodes.h ../cpu/lazy_flags.h ../cpu/icache.h \
  ../cpu/apic.h ../cpu/i387.h ../cpu/fpu/softfloat.h ../cpu/fpu/tag_w.h \
  ../cpu/fpu/status_w.h ../cpu/fpu/control_w.h ../cpu/xmm.h ../cpu/vmx.h \
- ../iodev/iodev.h ../plugin.h ../extplugin.h
+ ../iodev/iodev.h ../plugin.h ../extplugin.h ../redpill.h

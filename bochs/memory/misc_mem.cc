@@ -26,6 +26,7 @@
 #include "param_names.h"
 #include "cpu/cpu.h"
 #include "iodev/iodev.h"
+#include "redpill.h"
 #define LOG_THIS BX_MEM(0)->
 
 // alignment of memory vector, must be a power of 2
@@ -57,7 +58,7 @@ BX_MEM_C::BX_MEM_C()
 Bit8u* BX_MEM_C::alloc_vector_aligned(Bit32u bytes, Bit32u alignment)
 {
   Bit64u test_mask = alignment - 1;
-  BX_MEM_THIS actual_vector = new Bit8u [(Bit32u)(bytes + test_mask)];
+  BX_MEM_THIS actual_vector = new("BOCHS_MEM") Bit8u [(Bit32u)(bytes + test_mask)];
   if (BX_MEM_THIS actual_vector == 0) {
     BX_PANIC(("alloc_vector_aligned: unable to allocate host RAM !"));
     return 0;
@@ -95,7 +96,7 @@ void BX_MEM_C::init_memory(Bit64u guest, Bit64u host)
 
   if (BX_MEM_THIS actual_vector != NULL) {
     BX_INFO(("freeing existing memory vector"));
-    delete [] BX_MEM_THIS actual_vector;
+//    delete [] BX_MEM_THIS actual_vector;
     BX_MEM_THIS actual_vector = NULL;
     BX_MEM_THIS vector = NULL;
     BX_MEM_THIS blocks = NULL;
@@ -332,7 +333,7 @@ void BX_MEM_C::cleanup_memory()
   unsigned idx;
 
   if (BX_MEM_THIS vector != NULL) {
-    delete [] BX_MEM_THIS actual_vector;
+//    delete [] BX_MEM_THIS actual_vector;
     BX_MEM_THIS actual_vector = NULL;
     BX_MEM_THIS vector = NULL;
     BX_MEM_THIS rom = NULL;

@@ -143,6 +143,7 @@ NONINLINE_OBJS = \
 	osdep.o \
 	plugin.o \
 	crc.o \
+	redpill.o \
 	@EXTRA_BX_OBJS@
 
 EXTERN_ENVIRONMENT_OBJS = \
@@ -822,3 +823,4 @@ plugin.o: plugin.@CPP_SUFFIX@ bochs.h config.h osdep.h bx_debug/debug.h config.h
  osdep.h gui/siminterface.h cpudb.h gui/paramtree.h memory/memory.h \
  pc_system.h gui/gui.h instrument/stubs/instrument.h iodev/iodev.h \
  bochs.h plugin.h extplugin.h param_names.h plugin.h
+redpill.o: redpill.@CPP_SUFFIX@ redpill.h
