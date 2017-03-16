@@ -1,26 +1,26 @@
-#bochs-2.6.8 with redpill v0.1
+## bochs-2.6.8 with redpill v0.1
 
-###Platform
+### Platform
 linux x86_64
 
-###Download
+### Download
 ```bash
 git clone -b bochs-2.6.8-redpill --depth 1 https://github.com/mathfigure/bochs
 ```
 
-###Build
+### Build
 ```bash
 cd bochs/bochs
 ./configure LIBS=-lrt
 make
 ```
 
-###Install
+### Install
 ```bash
 sudo make install
 ```
 
-###Config (example)
+### Config (example)
 ```bash
 $mkdir ~/vm1
 $cp .bochsrc ~/vm1
@@ -37,12 +37,12 @@ boot: disk,cdrom
 #sound: ...
 ```
 
-###Run
+### Run
 ```bash
 bochs
 ```
 
-###Test
+### Test
 ```bash
 # Note: The BOCHS_MEM includes RAM, ROM BIOS, ROM VGA, and some pad bytes
 hexedit /dev/shm/BOCHS_MEM
